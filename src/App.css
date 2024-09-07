@@ -1,28 +1,98 @@
-body,html{
-  height: 100%;
-  margin: 0;
-  padding: 0;
+/* Font-Family */
+body {
+  font-family: "PingFang", "Roboto", sans-serif; /* 中文使用PingFang，英文字母與數字使用Roboto */
 }
 
-.App {
-  text-align: center;
-  background-color: #ffffff;
+/* Typography */
+
+/* H1 Regular */
+.font-H1-regular {
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 400; /* regular */
 }
-.backgorund{
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
+
+/* H1 Semibold */
+.font-H1-semibold {
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 600; /* semibold */
 }
 
+/* H2 Regular */
+.font-H2-regular {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400; /* regular */
+}
 
+/* H2 Semibold */
+.font-H2-semibold {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600; /* semibold */
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* H3 Regular */
+.font-H3-regular {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400; /* regular */
+}
+
+/* H3 Semibold */
+.font-H3-semibold {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600; /* semibold */
+}
+
+/* Body Regular */
+.font-Body-regular {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400; /* regular */
+}
+
+/* Body Semibold */
+.font-Body-semibold {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600; /* semibold */
+}
+
+/* Caption Regular */
+.font-Caption-regular {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400; /* regular */
+}
+
+/* Colors */
+
+/* Reminder */
+.reminder-hover-color {
+  background-color: #F4B992; /* Orange / 300 */
+}
+
+.reminder-default-color {
+  background-color: #FDB53A; /* Orange / 500 */
+}
+
+/* Disable */
+.disable-color {
+  background-color: #CAD1D5; /* Gray / 100 */
+}
+
+/* Text colors */
+.text-direction-color {
+  color: #91A0A8; /* Gray / 400 */
+}
+
+.text-second-color {
+  color: #475259; /* Grey / 700 */
+}
+
+.text-primary-color {
+  color: #30383D; /* Grey / 800 */
 }

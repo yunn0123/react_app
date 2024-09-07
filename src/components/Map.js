@@ -1,19 +1,10 @@
-// Map.js
 import React from 'react';
 import { Link } from 'react-router-dom';
- // 引入 MapComponent
 import MapComponent from './ArtMap.js';
-import './css/map.css';
-
 
 const MapPage = () => {
   return (
     <div id="map-page">
-      {/* Header */}
-      {/* <div id="header">
-        <h3 id="title">藝通台北</h3>
-      </div> */}
-      
       {/* Map placeholder */}
       <div id="map-placeholder">
         <MapComponent />  
@@ -21,8 +12,7 @@ const MapPage = () => {
       
       {/* Bottom info and button */}
       <div id="bottom-info">
-        <p id="art-info">公共裝置藝術資訊</p>
-        <Link to="/gallery" id="gallery-link" className="btn btn-info mt-4 px-4">前往打卡</Link>
+        <Link to="/gallery" className="btn btn-info mt-3 w-100 font-H3-semibold" style={{ backgroundColor: '#5AB4C5', border: 'none', color: 'white', padding: '10px' }}>前往打卡</Link>
       </div>
     </div>
   );
