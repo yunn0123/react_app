@@ -2,6 +2,11 @@
   text-align: center;
   background-color: #CAD1D5;
 }
+.backgorund{
+  justify-content: center;
+  align-items: center;
+  background-color: #CAD1D5;
+}
 
 .App-logo {
   height: 40vmin;

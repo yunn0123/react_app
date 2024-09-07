@@ -1,15 +1,16 @@
 // Introduction.js
 import React from 'react';
 import './css/introduction.css';
+import { Link } from 'react-router-dom';
 
 function Introduction() {
     return (
-      <div  className="container" id="basic">
+      <div  className="container mt-5" id="basic">
         {/* Main card bar */}
         <div className="card text-center">
           {/* Card header */}
-          <div className="head">
-            <img className="image" src= "./img/TownPass_Ellipse.png" alt="" />
+          <div className="head mt-4">
+            <img className="image rounded float-start" src= "./img/TownPass_Ellipse.png" alt="" />
             <h2 className="ml-2" id="title">藝通台北</h2>
           </div>
   
@@ -32,13 +33,13 @@ function Introduction() {
           </div>
   
           {/* Card footer */}
-          <div className="foot mb-2">
+          <div className="foot mb-4">
             來探索台北這座城市中的藝術瑰寶吧！
           </div>
         </div>
   
-        {/* Map button */}
-        <button className="btn btn-info mt-4 px-4" id="enter">進入地圖</button>
+         {/* Link to Map Page */}
+         <Link to="/map" className="btn btn-info mt-4 px-4" id="enter">進入地圖</Link>
       </div>
     );
 }

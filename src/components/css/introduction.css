@@ -2,6 +2,12 @@ body{
     background-color: #CAD1D5;
     justify-content: center;
     align-items: center;
+    height: 100vh; /* 確保背景顏色覆蓋整個視窗高度 */
+    margin: 0; /* 移除預設的 margin */
+}
+.container{
+    justify-content: center;
+    align-items: center;
 }
 .card{
     display: flex;

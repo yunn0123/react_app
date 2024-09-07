@@ -16,7 +16,7 @@ import artDataJson from './data/artData.json';
 
 function App() {
   return (
-    <div className="App container">
+    <div className="background App container" >
       <Router>
         <Routes>
     
