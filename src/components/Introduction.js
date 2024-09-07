@@ -1,14 +1,16 @@
 // Introduction.js
 import React from 'react';
+import './css/introduction.css';
 
 function Introduction() {
     return (
-        <div className="container my-5">
-        {/* Main card */}
-        <div className="card text-center shadow-sm">
+      <div  className="container" id="basic">
+        {/* Main card bar */}
+        <div className="card text-center">
           {/* Card header */}
-          <div className="card-header bg-light">
-            <h2 className="text-primary">藝通台北</h2>
+          <div className="head">
+            <img className="image" src= "../img/TownPass_Ellipse.png" alt="" />
+            <h2 className="text-primary ml-2">藝通台北</h2>
           </div>
   
           {/* Card body */}
@@ -23,20 +25,20 @@ function Introduction() {
             </p>
   
             {/* Notification / warning */}
-            <div className="alert alert-warning" role="alert">
-              本服務將根據您當前的手機定位，找到附近的公共藝術作品。
+            <div className="alert alert-warning " role="alert">
+              本服務將根據您當前的手機定位，找到附近的公共藝術作品。<br />
               請使用智慧定位服務並進行打卡。
             </div>
           </div>
   
           {/* Card footer */}
-          <div className="card-footer text-muted">
+          <div className="foot mb-2">
             來探索台北這座城市中的藝術瑰寶吧！
           </div>
         </div>
   
         {/* Map button */}
-        <button className="btn btn-info mt-4 px-4">進入地圖</button>
+        <button className="btn btn-info mt-4 px-4" id="enter">進入地圖</button>
       </div>
     );
 }

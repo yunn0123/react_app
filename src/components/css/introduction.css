@@ -1,0 +1,62 @@
+body{
+    background-color: #CAD1D5;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.head{
+    /* color: white;
+    font-weight:bolder; */
+}
+.image{
+    position: relative;
+
+}
+.text-primary{
+    color: #5AB4C5;
+    font-weight:bolder;
+
+}
+.alert{
+    font-size: 12px;
+    padding: 15px;
+}
+
+#enter {
+    background-color: #5AB4C5;
+    color: white;
+    border: none;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    margin: auto; /* 如果需要讓按鈕在父容器中水平置中 */
+}
+
+ @media screen and (max-width: 596px) {
+    .card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .image{
+        position: relative;
+        width: 100%;
+    }
+    .h2{
+        color: #5AB4C5;
+        font-weight:bolder;
+        font-size: 1.5rem;
+    }
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto; /* 如果需要讓按鈕在父容器中水平置中 */
+    }
+    
+} 
