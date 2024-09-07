@@ -9,8 +9,8 @@ function Introduction() {
         <div className="card text-center">
           {/* Card header */}
           <div className="head">
-            <img className="image" src= "../img/TownPass_Ellipse.png" alt="" />
-            <h2 className="text-primary ml-2">藝通台北</h2>
+            <img className="image" src= "./img/TownPass_Ellipse.png" alt="" />
+            <h2 className="ml-2" id="title">藝通台北</h2>
           </div>
   
           {/* Card body */}

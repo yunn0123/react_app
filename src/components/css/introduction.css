@@ -8,15 +8,14 @@ body{
     justify-content: center;
     align-items: center;
 }
-.head{
-    /* color: white;
-    font-weight:bolder; */
-}
+
 .image{
     position: relative;
+    top: 0px;
+    left: 0px;
 
 }
-.text-primary{
+#title{
     color: #5AB4C5;
     font-weight:bolder;
 
