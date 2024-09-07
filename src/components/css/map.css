@@ -1,0 +1,39 @@
+body,html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#title{
+    color: #5AB4C5;
+    font-weight:bolder;
+    justify-content: center;
+}
+
+#map-page {
+    width: 100%; /* 設置容器寬度為 100% */
+    margin-top: 12px; /* 移除外邊距 */
+    padding: 0; /* 移除內邊距 */
+    align-items: center;
+}
+
+#bottom-info {
+    width: 100%; /* 設置底部信息容器寬度為 100% */
+    text-align: center; /* 使內容居中 */
+    padding: 10px; /* 添加一些內邊距 */
+}
+
+#art-info {
+    margin-top: 10px; /* 移除外邊距 */
+    margin-bottom: 0px;
+}
+
+#gallery-link {
+    display: inline-block;
+    margin: 0;
+    padding: 10px 20px;
+    background-color: #5AB4C5;
+    color: white;
+    text-decoration: none;
+    border:none;
+}
+

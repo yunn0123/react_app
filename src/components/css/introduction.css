@@ -1,9 +1,11 @@
 body{
-    background-color: #CAD1D5;
+    background-color: #ffffff;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; /* 確保背景顏色覆蓋整個視窗高度 */
     margin: 0; /* 移除預設的 margin */
+    padding: 0; /* 移除預設的 padding */
 }
 .container{
     justify-content: center;
@@ -36,7 +38,7 @@ body{
     color: white;
     border: none;
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     margin: auto; /* 如果需要讓按鈕在父容器中水平置中 */
 }

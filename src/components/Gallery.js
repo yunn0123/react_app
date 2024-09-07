@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 
 // Data
 import artDataJson from '../data/artData.json'; 
+import './css/artlist.css';
+
+
 
 const GalleryPage = () => {
   // Load data into state (in a real case, you would fetch this from an API)

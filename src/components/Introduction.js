@@ -40,6 +40,7 @@ function Introduction() {
   
          {/* Link to Map Page */}
          <Link to="/map" className="btn btn-info mt-4 px-4" id="enter">進入地圖</Link>
+         <Link to="/map" className="btn btn-info mt-4 px-4" id="enter">打卡記錄</Link>
       </div>
     );
 }

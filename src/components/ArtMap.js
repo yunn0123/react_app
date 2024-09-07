@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import artDataJson from '../data/artData.json'; 
-
+// import './css/artMap.css';
 
 const MapComponent = () => {
   useEffect(() => {
@@ -60,7 +60,7 @@ const MapComponent = () => {
     };
   }, []);
 
-  return <div id="map" style={{ width: "100%", height: "100vh" }}></div>;
+  return <div id="map" style={{ width: "100%", height: "82vh", margin: "0",padding:"0"}}></div>;
 };
 
 export default MapComponent;

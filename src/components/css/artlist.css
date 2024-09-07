@@ -1,0 +1,37 @@
+/* #gallery-page{
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+#header-title{
+    color: #5AB4C5;
+    margin-top:20px;
+    margin-bottom: 35px;
+    font-weight: bolder;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.art-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.art-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+#gallery-link {
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: #5AB4C5;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    flex-shrink: 0; 
+} */
