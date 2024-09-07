@@ -10,18 +10,19 @@ import Art from './components/Art.js';
 import MyPlace from './components/MyPlace.js';
 
 //////////////// json data //////////////////
-import artData from './data/artData.json'; 
+import artDataJson from './data/artData.json'; 
+
 
 // 動態取得藝術品名稱的函數，根據作品編號
 const getArtNameById = (id, data) => {
-  const art = data.find(item => item['作品編號'] === id);
+  const art = data.find(item => item['系統編號'] === id);
   return art ? art['作品名稱'] : "未找到藝術品";
 };
 
 // 單個藝術品頁面組件，動態加載藝術品名稱
 function ArtPage() {
   const { artID } = useParams(); // 從 URL 參數中獲取 artID
-  const artName = getArtNameById(artID, artData); // 根據 artID 從 JSON 中查找對應的藝術品名稱
+  const artName = getArtNameById(artID, artDataJson); // 根據 artID 從 JSON 中查找對應的藝術品名稱
 
   return (
     <div>
