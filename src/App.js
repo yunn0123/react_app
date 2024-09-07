@@ -1,3 +1,4 @@
+
 //////////////// react //////////////////
 import React from 'react';
 import { useParams, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -6,8 +7,9 @@ import { useParams, BrowserRouter as Router, Route, Routes } from 'react-router-
 import Introduction from './components/Introduction.js';
 import Map from './components/Map.js';
 import Gallery from './components/Gallery.js';
-import Art from './components/Art.js';
 import MyPlace from './components/MyPlace.js';
+import ArtMap from './components/ArtMap.js';
+import ArtDetail from './components/ArtDetail.js';
 
 //////////////// json data //////////////////
 import artDataJson from './data/artData.json'; 
@@ -37,6 +39,7 @@ function App() {
     <div className="App container">
       <Router>
         <Routes>
+    
           {/*產品介紹頁面*/}
           <Route path="/" element={<Introduction />} />
           
@@ -56,6 +59,12 @@ function App() {
               // 傳遞的用戶資訊 props，如：setAuthEmail, authEmail 等
             }} />} 
           />
+
+          {/* 動態的藝術品詳細頁面（DetailComponent） */}
+          <Route path="/details/:artId" element={<ArtDetail />} />
+
+          {/* 動態地圖頁面（MapComponent） */}
+          <Route path="/dynamic-map" element={<ArtMap />} />
         </Routes>
       </Router>
     </div>
