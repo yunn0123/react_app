@@ -15,7 +15,7 @@ function Introduction() {
   
           {/* Card body */}
           <div className="card-body">
-            <p className="card-text">
+            <p className="card-text" id="description">
               探索城市中的藝術美景，藝術體驗台北的獨特魅力！
               <br />
               台北市各戶外公共藝術地標，已經超過1000件作品，來為城市帶來活力與創意。
@@ -25,7 +25,7 @@ function Introduction() {
             </p>
   
             {/* Notification / warning */}
-            <div className="alert alert-warning " role="alert">
+            <div className="alert alert-warning " id="notification" role="alert">
               本服務將根據您當前的手機定位，找到附近的公共藝術作品。<br />
               請使用智慧定位服務並進行打卡。
             </div>
@@ -44,4 +44,3 @@ function Introduction() {
 }
 
 export default Introduction;
-

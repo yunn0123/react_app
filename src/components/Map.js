@@ -1,25 +1,26 @@
 // Map.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+ // 引入 MapComponent
+import MapComponent from './ArtMap.js';
 
 const MapPage = () => {
   return (
-    <div className="container-fluid">
+    <div id="map-page">
       {/* Header */}
-      <div className="d-flex justify-content-between align-items-center p-2 border-bottom">
-        <h3 className="m-0">藝通台北</h3>
-        <Link to="/" className="btn-close"></Link>
+      <div id="header">
+        <h3 id="title">藝通台北</h3>
       </div>
       
       {/* Map placeholder */}
-      <div className="map-placeholder" style={{ height: '500px', backgroundColor: '#CBD5E0' }}>
-        {/* This div represents the map placeholder */}
+      <div id="map-placeholder">
+        <MapComponent />  
       </div>
       
       {/* Bottom info and button */}
-      <div className="d-flex justify-content-between align-items-center p-3 border-top fixed-bottom bg-white">
-        <p className="m-0">公共裝置藝術資訊</p>
-        <button className="btn btn-outline-info">前往打卡</button>
+      <div id="bottom-info">
+        <p id="art-info">公共裝置藝術資訊</p>
+        <Link to="/gallery" id="gallery-link">前往打卡</Link>
       </div>
     </div>
   );
