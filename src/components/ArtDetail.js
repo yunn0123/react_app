@@ -34,7 +34,7 @@ const DetailComponent = () => {
 
   useEffect(() => {
     // Find the art piece in local JSON data
-    const piece = artDataJson.find(p => p.作品編號 === artId);
+    const piece = artDataJson.find(p => p.系統編號 === artId);
     setArtPiece(piece);
 
     if (piece) {
@@ -56,7 +56,7 @@ const DetailComponent = () => {
     <div className="container my-5">
       <div className="card">
         <div className="card-body">
-          <h2 className="card-title">{artPiece.作品名稱}</h2>
+          <h2 className="card-title" class="font-H1-semibold">{artPiece.作品名稱}</h2>
           <p className="card-text">作者: {artPiece.作者}</p>
           <p className="card-text">設置地點: {artPiece.設置地點}</p>
           <p className="card-text">場域: {artPiece.場域}</p>
@@ -71,11 +71,11 @@ const DetailComponent = () => {
 
           {/* Button Section */}
           <div className="d-flex justify-content-between">
-            <Link to="/gallery" className="btn btn-secondary">回到列表</Link>
+            <Link to="/gallery" className="btn" style={{ backgroundColor: '#5AB4C5', border: 'none', color: 'white', padding: '10px' }}>回列表</Link>
             
-            <span className="d-inline-block" tabIndex="0" data-bs-toggle="tooltip" title={isCheckInEnabled ? "打卡" : `距離需小於50公尺，當前距離: ${distance} 公尺`}>
-              <button className="btn btn-primary" disabled={!isCheckInEnabled}>
-                打卡
+            <span className="d-inline-block" tabIndex="0" data-bs-toggle="tooltip">
+              <button className="btn btn-primary" disabled={!isCheckInEnabled} style={{ backgroundColor: '#5AB4C5', border: 'none', color: 'white', padding: '10px' }}>
+                {isCheckInEnabled ? "打卡" : `距離需小於50公尺，當前距離: ${distance} 公尺`}
               </button>
             </span>
 

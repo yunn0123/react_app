@@ -38,7 +38,7 @@ function App() {
 
           {/* 我的地點頁面 */}
          {/* <Route 
-            path="/myPlace" 
+            path="/check-in-history" 
             element={<MyPlace userId="" />} 
           /> */}
 

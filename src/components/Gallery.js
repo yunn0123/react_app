@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Data
 import artDataJson from '../data/artData.json'; 
-import './css/artlist.css';
+//import './css/artlist.css';
 
 
 
@@ -56,13 +56,13 @@ const GalleryPage = () => {
     <div id="gallery-page" className="container">
       {/* Header */}
       <div id="header" className="my-4">
-        <h4 id="header-title">周邊裝置藝術</h4>
+        <h4 id="header-title" class="font-H1-semibold">周邊裝置藝術</h4>
       </div>
 
       {/* Art Installations List */}
       <div id="art-list" style={{ overflowY: 'scroll' }}>
         {sortedArtData.map((item) => (
-          <div key={item.作品編號} className="card mb-3">
+          <div key={item.系統編號} className="card mb-3">
             <div className="row g-0">
               <div className="col-md-4">
                 <img
@@ -79,8 +79,8 @@ const GalleryPage = () => {
                     <br />
                     {item.distance ? `${item.distance} m` : '距離未知'}
                   </p>
-                  <Link to={{pathname: `/details/${item.作品編號}`}}
-                    className="btn btn-primary"
+                  <Link to={{pathname: `/details/${item.系統編號}`}}
+                    className="btn btn-outline-info mt-3 w-100 font-H3-semibold"
                   >
                     打開
                   </Link>
@@ -92,8 +92,8 @@ const GalleryPage = () => {
       </div>
       {/* Bottom Navigation */}
       <div id="bottom-nav" className="fixed-bottom bg-light text-center p-3">
-        <Link to="/map" className="btn btn-outline-primary">
-          回到地圖
+        <Link to="/map" className="btn mt-3 w-100 font-H3-semibold" style={{ backgroundColor: '#5AB4C5', border: 'none', color: 'white', padding: '10px' }}>
+          回地圖
         </Link>
       </div>
     </div>

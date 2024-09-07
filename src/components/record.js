@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import artData from './artData.json'; // 將本地 artData.json 檔案匯入
-import './css/record.css';
+//import './css/record.css';
 
 
 const ArtInfo = () => {
