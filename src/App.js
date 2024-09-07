@@ -2,7 +2,7 @@
 //////////////// react //////////////////
 import React from 'react';
 import { useParams, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 //////////////// components //////////////////
 import Introduction from './components/Introduction.js';
 import Map from './components/Map.js';
