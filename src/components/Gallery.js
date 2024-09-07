@@ -30,7 +30,8 @@ const GalleryPage = () => {
               <br />
               <small>{item.距離}</small>
             </div>
-            <button className="check-in-btn">打卡</button>
+            {/* Update the link to use the system ID (系統編號) */}
+            <Link to={`/art/${item.系統編號}`} id="gallery-link">打卡</Link>
           </div>
         ))}
       </div>
