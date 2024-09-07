@@ -1,5 +1,6 @@
 // Introduction.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Introduction() {
     return (
@@ -34,10 +35,9 @@ function Introduction() {
             來探索台北這座城市中的藝術瑰寶吧！
           </div>
         </div>
-  
-        {/* Map button */}
-        <button className="btn btn-info mt-4 px-4">進入地圖</button>
-      </div>
+        {/* Link to Map Page */}
+        <Link to="/map" className="btn btn-info mt-4 px-4">進入地圖</Link>
+    </div>
     );
 }
 
