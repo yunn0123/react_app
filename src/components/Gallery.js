@@ -31,7 +31,7 @@ const GalleryPage = () => {
               <small>{item.距離}</small>
             </div>
             {/* Update the link to use the system ID (系統編號) */}
-            <Link to={`/art/${item.系統編號}`} id="gallery-link">打卡</Link>
+            <Link to={`/details/${item.系統編號}`} id="gallery-link">打卡</Link>
           </div>
         ))}
       </div>

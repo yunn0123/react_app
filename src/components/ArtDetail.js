@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import artDataJson from '../data/artData.json'; 
+
 const DetailComponent = () => {
   const { artId } = useParams(); // 獲取路由參數
+  console.log(artId);
   const [artPiece, setArtPiece] = useState(null);
 
   useEffect(() => {
-    fetch("/data/artData.json")
-      .then(response => response.json())
-      .then(data => {
-        const piece = data.find(p => p.系統編號 === artId);
-        setArtPiece(piece);
-      })
-      .catch(error => console.error("Error fetching the JSON file:", error));
+    // 在本地的 JSON 數據中找到對應的藝術品
+    const piece = artDataJson.find(p => p.系統編號 === artId);
+    setArtPiece(piece);
   }, [artId]);
 
   if (!artPiece) return <p>加載中...</p>;

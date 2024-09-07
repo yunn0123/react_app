@@ -1,6 +1,8 @@
 // Map.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+ // 引入 MapComponent
+import MapComponent from './ArtMap.js';
 
 const MapPage = () => {
   return (
@@ -11,8 +13,8 @@ const MapPage = () => {
       </div>
       
       {/* Map placeholder */}
-      <div id="map-placeholder" style={{ height: '500px', backgroundColor: '#CBD5E0' }}>
-        {/* This div represents the map placeholder */}
+      <div id="map-placeholder">
+        <MapComponent />  
       </div>
       
       {/* Bottom info and button */}

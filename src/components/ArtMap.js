@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+import artDataJson from '../data/artData.json'; 
+
+
 const MapComponent = () => {
   useEffect(() => {
     // 初始化地圖
@@ -8,44 +11,40 @@ const MapComponent = () => {
         zoom: 12,
         center: { lat: 25.0330, lng: 121.5654 } // 台北市中心
       });
+      
+      artDataJson.forEach(piece => {
+        console.log('success');
+        const lat = parseFloat(piece.緯度);
+        const lng = parseFloat(piece.經度);
+        const name = piece.作品名稱;
+        const author = piece.作者;
+        const imageUrl = piece.主圖;
+        const detailUrl = `/details/${piece.系統編號}`;
 
-      fetch("/data/output.json") // 讀取藝術品數據
-        .then(response => response.json())
-        .then(data => {
-          data.forEach(piece => {
-            const lat = parseFloat(piece.緯度);
-            const lng = parseFloat(piece.經度);
-            const name = piece.作品名稱;
-            const author = piece.作者;
-            const imageUrl = piece.主圖;
-            const detailUrl = `/details/${piece.系統編號}`;
-
-            if (!isNaN(lat) && !isNaN(lng)) {
-              const marker = new window.google.maps.Marker({
-                position: { lat, lng },
-                map,
-                title: name
-              });
-
-              const infoWindow = new window.google.maps.InfoWindow({
-                content: `
-                  <div>
-                    <h3>${name}</h3>
-                    <p>作者: ${author}</p>
-                    <img src="${imageUrl}" alt="${name}" style="width:200px;">
-                    <br><br>
-                    <button onclick="window.location.href='${detailUrl}';">看更多</button>
-                  </div>
-                `
-              });
-
-              marker.addListener("click", () => {
-                infoWindow.open(map, marker);
-              });
-            }
+        if (!isNaN(lat) && !isNaN(lng)) {
+          const marker = new window.google.maps.Marker({
+            position: { lat, lng },
+            map,
+            title: name
           });
-        })
-        .catch(error => console.error("Error fetching the JSON file:", error));
+
+          const infoWindow = new window.google.maps.InfoWindow({
+            content: `
+              <div>
+                <h3>${name}</h3>
+                <p>作者: ${author}</p>
+                <img src="${imageUrl}" alt="${name}" style="width:200px;">
+                <br><br>
+                <button onclick="window.location.href='${detailUrl}';">看更多</button>
+              </div>
+            `
+          });
+
+          marker.addListener("click", () => {
+            infoWindow.open(map, marker);
+          });
+        }
+      });
     };
 
     window.initMap = initMap;
