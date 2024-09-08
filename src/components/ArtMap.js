@@ -11,7 +11,10 @@ const MapComponent = () => {
         zoom: 12,
         center: { lat: 25.0330, lng: 121.5654 } // 台北市中心
       });
-      
+
+      // 只創建一個 InfoWindow
+      const infoWindow = new window.google.maps.InfoWindow();
+
       artDataJson.forEach(piece => {
         console.log('success');
         const lat = parseFloat(piece.緯度);
@@ -28,8 +31,9 @@ const MapComponent = () => {
             title: name
           });
 
-          const infoWindow = new window.google.maps.InfoWindow({
-            content: `
+          // 點擊標記時更新 InfoWindow 的內容
+          marker.addListener("click", () => {
+            infoWindow.setContent(`
               <div>
                 <h3>${name}</h3>
                 <p>作者: ${author}</p>
@@ -37,10 +41,7 @@ const MapComponent = () => {
                 <br><br>
                 <button onclick="window.location.href='${detailUrl}';">看更多</button>
               </div>
-            `
-          });
-
-          marker.addListener("click", () => {
+            `);
             infoWindow.open(map, marker);
           });
         }
@@ -60,7 +61,7 @@ const MapComponent = () => {
     };
   }, []);
 
-  return <div id="map" style={{ width: "100%", height: "82vh", margin: "0",padding:"0"}}></div>;
+  return <div id="map" style={{ width: "100%", height: "82vh", margin: "0", padding: "0" }}></div>;
 };
 
 export default MapComponent;
