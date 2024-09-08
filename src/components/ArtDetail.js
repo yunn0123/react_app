@@ -82,7 +82,7 @@ const DetailComponent = () => {
   // 檢查 currentLocation 是否存在，否則不渲染
   if (!artPiece || !currentLocation) return <p>加載中...</p>;
 
-  const isCheckInEnabled = distance && distance < 50;
+  const isCheckInEnabled = distance && distance < 500;
 
   return (
     <div className="container my-5">
@@ -107,7 +107,7 @@ const DetailComponent = () => {
             
             <span className="d-inline-block" tabIndex="0" data-bs-toggle="tooltip">
               <button className="btn btn-primary" disabled={!isCheckInEnabled} style={{ backgroundColor: '#5AB4C5', border: 'none', color: 'white', padding: '10px' }}>
-                {isCheckInEnabled ? "打卡" : `距離需小於50公尺，當前距離: ${distance} 公尺`}
+                {isCheckInEnabled ? "打卡" : `距離需小於500公尺，當前距離: ${distance} 公尺`}
               </button>
             </span>
           </div>

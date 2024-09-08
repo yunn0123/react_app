@@ -38,8 +38,6 @@ const MapComponent = () => {
                 <h3>${name}</h3>
                 <p>作者: ${author}</p>
                 <img src="${imageUrl}" alt="${name}" style="width:200px;">
-                <br><br>
-                <button onclick="window.location.href='${detailUrl}';">看更多</button>
               </div>
             `);
             infoWindow.open(map, marker);
