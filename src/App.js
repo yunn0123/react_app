@@ -12,6 +12,9 @@ import Gallery from './components/Gallery.js';
 import MapComponent from './components/ArtMap.js';
 import DetailComponent from './components/ArtDetail.js';
 
+import ArtInfo from './components/record.js';
+import Component from './components/GetLocation.js';
+
 //////////////// json data //////////////////
 import artDataJson from './data/artData.json'; 
 
@@ -37,12 +40,13 @@ function App() {
           {/* <Route path="/dynamic-map" element={<MapComponent />} /> */}
 
           {/* 我的地點頁面 */}
-         {/* <Route 
+         <Route 
             path="/check-in-history" 
-            element={<MyPlace userId="" />} 
-          /> */}
-
+            element={<ArtInfo userId="" />} 
+          />
         </Routes>
+
+        
       </Router>
     </div>
   );
