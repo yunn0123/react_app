@@ -50,7 +50,7 @@ const MapComponent = () => {
 
     // 加載 Google Maps API
     const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBfTGP2hy7vxs9b-MDzMNBlAxQe3e9i1sg&callback=initMap`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBnZHw0gIbVDuyLRbSF3jVb7fGSVVZpjrc&callback=initMap`;
     script.async = true;
     document.head.appendChild(script);
 
