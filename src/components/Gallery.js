@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 // Data
 import artDataJson from '../data/artData.json'; 
 //import './css/artlist.css';
-
+import { getCurrentLocation } from './GetLocation';  // 匯入位置取得函數
 
 
 // Haversine formula to calculate the distance between two points
 const haversineDistance = (coords1, coords2) => {
-  const toRad = (x) => (x * Math.PI) / 180;
-  const R = 6371; // Radius of the Earth in km
+  const toRad = (x) => (x * Math.PI) / 180; // 角度轉換為弧度
+  const R = 6371; // 地球半徑 (公里)
   const dLat = toRad(coords2.latitude - coords1.latitude);
   const dLon = toRad(coords2.longitude - coords1.longitude);
   const lat1 = toRad(coords1.latitude);
@@ -20,46 +20,59 @@ const haversineDistance = (coords1, coords2) => {
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  const distance = R * c * 1000;
+  const distance = R * c * 1000; // 將距離轉換為公尺
   return distance;
 };
 
-const GalleryPage = () => {
-  // Load data into state (in a real case, you would fetch this from an API)
-  const [artData, setArtData] = useState([]);
 
-  // 假設我們在台北市中心(25.0330, 121.5654)
-  const currentLocation = {
-    latitude: 25.0330,
-    longitude: 121.5654
-  };
+const GalleryPage = () => {
+  const [artData, setArtData] = useState([]);  // 藝術品資料狀態
+  const [currentLocation, setCurrentLocation] = useState(null); // 使用者位置狀態
 
   useEffect(() => {
-    // Load art data
+    // 加載藝術品資料
     setArtData(artDataJson);
-  }, []);
+    
+    // 使用 getCurrentLocation 動態取得使用者位置
+    getCurrentLocation()
+      .then(location => setCurrentLocation({
+        latitude: location.lat,
+        longitude: location.lng
+      }))
+      .catch(error => {
+        console.error("無法取得位置", error);
+        setCurrentLocation({
+          latitude: 25.0330, // 預設為台北市中心
+          longitude: 121.5654
+        });
+      });
+  }, []); // 空陣列作為依賴，表示這個 useEffect 僅在組件初次加載時運行
 
-  // Calculate distances and sort the art list
+  if (!currentLocation) {
+    return <p>正在加載位置...</p>;
+  }
+
+  // 計算每個藝術品與使用者的距離，並排序
   const sortedArtData = artData.map((item) => {
     const artLocation = {
-      latitude: parseFloat(item.緯度), // Convert string to number
-      longitude: parseFloat(item.經度), // Convert string to number
+      latitude: parseFloat(item.緯度),
+      longitude: parseFloat(item.經度),
     };
-    const distance = haversineDistance(currentLocation, artLocation).toFixed(1); // Calculate distance
+    const distance = haversineDistance(currentLocation, artLocation).toFixed(1); // 計算距離
     return { ...item, distance };
   });
-  
-  // Sort by distance
+
+  // 依距離進行排序
   sortedArtData.sort((a, b) => a.distance - b.distance);
 
   return (
     <div id="gallery-page" className="container">
-      {/* Header */}
+      {/* 頁面標題 */}
       <div id="header" className="my-4">
-        <h4 id="header-title" class="font-H1-semibold">周邊裝置藝術</h4>
+        <h4 id="header-title">周邊裝置藝術</h4>
       </div>
 
-      {/* Art Installations List */}
+      {/* 藝術品列表 */}
       <div id="art-list" style={{ overflowY: 'scroll' }}>
         {sortedArtData.map((item) => (
           <div key={item.系統編號} className="card mb-3">
@@ -79,9 +92,8 @@ const GalleryPage = () => {
                     <br />
                     {item.distance ? `${item.distance} m` : '距離未知'}
                   </p>
-                  <Link to={{pathname: `/details/${item.系統編號}`}}
-                    className="btn btn-outline-info mt-3 w-100 font-H3-semibold"
-                  >
+                  <Link to={`/details/${item.系統編號}`}
+                    className="btn btn-outline-info mt-3 w-100">
                     打開
                   </Link>
                 </div>
@@ -90,9 +102,10 @@ const GalleryPage = () => {
           </div>
         ))}
       </div>
-      {/* Bottom Navigation */}
+
+      {/* 底部導航按鈕 */}
       <div id="bottom-nav" className="fixed-bottom bg-light text-center p-3">
-        <Link to="/map" className="btn mt-3 w-100 font-H3-semibold" style={{ backgroundColor: '#5AB4C5', border: 'none', color: 'white', padding: '10px' }}>
+        <Link to="/map" className="btn mt-3 w-100" style={{ backgroundColor: '#5AB4C5', border: 'none', color: 'white', padding: '10px' }}>
           回地圖
         </Link>
       </div>
