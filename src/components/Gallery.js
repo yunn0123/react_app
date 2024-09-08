@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Data
 import artDataJson from '../data/artData.json'; 
-//import './css/artlist.css';
 import { getCurrentLocation } from './GetLocation';  // 匯入位置取得函數
-
 
 // Haversine formula to calculate the distance between two points
 const haversineDistance = (coords1, coords2) => {
@@ -24,32 +22,52 @@ const haversineDistance = (coords1, coords2) => {
   return distance;
 };
 
-
 const GalleryPage = () => {
   const [artData, setArtData] = useState([]);  // 藝術品資料狀態
   const [currentLocation, setCurrentLocation] = useState(null); // 使用者位置狀態
+  const [error, setError] = useState(null); // 錯誤訊息狀態
 
   useEffect(() => {
     // 加載藝術品資料
     setArtData(artDataJson);
     
-    // 使用 getCurrentLocation 動態取得使用者位置
-    getCurrentLocation()
-      .then(location => setCurrentLocation({
-        latitude: location.lat,
-        longitude: location.lng
-      }))
-      .catch(error => {
-        console.error("無法取得位置", error);
-        setCurrentLocation({
-          latitude: 25.0330, // 預設為台北市中心
-          longitude: 121.5654
+    // 用於不斷嘗試取得位置資料，直到成功或達到最大次數
+    let intervalId;
+    let maxAttempts = 10; // 最大嘗試次數
+    let attemptCount = 0;
+
+    const fetchLocation = () => {
+      getCurrentLocation()
+        .then((location) => {
+          setCurrentLocation({
+            latitude: location.lat,
+            longitude: location.lng
+          });
+          clearInterval(intervalId); // 成功取得位置後清除定時器
+        })
+        .catch((err) => {
+          console.error("無法取得位置", err);
+          attemptCount++;
+          if (attemptCount >= maxAttempts) {
+            setError("無法取得您的位置，請啟用定位服務或稍後重試");
+            clearInterval(intervalId); // 達到最大次數後停止嘗試
+          }
         });
-      });
+    };
+
+    // 每2秒嘗試取得一次位置
+    intervalId = setInterval(fetchLocation, 2000);
+
+    // 在組件卸載時清除定時器
+    return () => clearInterval(intervalId);
   }, []); // 空陣列作為依賴，表示這個 useEffect 僅在組件初次加載時運行
 
   if (!currentLocation) {
     return <p>正在加載位置...</p>;
+  }
+
+  if (error) {
+    return <p style={{ color: 'red' }}>{error}</p>;
   }
 
   // 計算每個藝術品與使用者的距離，並排序
